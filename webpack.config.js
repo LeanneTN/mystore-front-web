@@ -2,6 +2,8 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
     entry: {
         'index' : './src/page/index/index.js',
@@ -21,7 +23,14 @@ module.exports = {
         ]
     },
     plugins:[
-        new MiniCssExtractPlugin({filename: 'css/[name].css'})
+        new MiniCssExtractPlugin({filename: 'css/[name].css'}),
+        new HtmlWebpackPlugin({
+            template : './src/view/index.html',  //where the html pages storing
+            filename : 'view/index.html',        //where to put the packed pages
+            inject : true,                       //css and js will be injected into pages
+            hash : true,                         //generate a hash code
+            chunks : ['util', 'index']           //inject util into index
+        })
     ],
     optimization : {
         //get public module
