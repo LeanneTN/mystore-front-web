@@ -12,6 +12,7 @@ module.exports = {
     output: {
         filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist'),
+        assetModuleFilename : 'resources/[name][ext][query]'
     },
     module: {
         rules: [
@@ -28,6 +29,10 @@ module.exports = {
                         esModule : false
                     }
                 },
+            },
+            {
+                test : /\.(woff|woff2|eot|ttf|otf)$/i,
+                type : 'asset/resource',
             }
         ]
     },
@@ -54,6 +59,15 @@ module.exports = {
             }
         }
     },
+    resolve:{
+        alias : {
+            node_modules : path.resolve(__dirname, '/node_modules'),
+            page : path.resolve(__dirname, './src/page'),
+            utils : path.resolve(__dirname, './src/utils'),
+            view : path.resolve(__dirname, './src/view')
+        }
+    }
+    ,
     devServer: {
         static : './dist'
     },
