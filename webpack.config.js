@@ -19,6 +19,15 @@ module.exports = {
                 // every file suffix by css will use style-loader and css-loader
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
+            {
+                test: /\.htm$/i,
+                use: {
+                    loader : 'html-loader',
+                    options: {
+                        esModule : false
+                    }
+                },
             }
         ]
     },

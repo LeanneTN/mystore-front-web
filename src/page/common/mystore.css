@@ -1,0 +1,37 @@
+/* css reset*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f6f6f6;
+    font: 12px/1.5 tahoma, arial, Microsoft YaHei, sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+img{
+    display: block;
+    border: none;
+}
+
+label{
+    cursor: pointer;
+}
+
+input[type='checkbox']{
+    cursor: pointer;
+}
+
+/* fixed width display*/
+.w {
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* global style*/
