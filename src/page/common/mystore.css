@@ -48,6 +48,10 @@ input[type='checkbox']{
 .link:hover{
     color: #215496;
 }
+.link-text{
+    color: #999;
+    text-decoration: none;
+}
 
 .btn{
     display: inline-block;
