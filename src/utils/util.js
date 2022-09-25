@@ -1,6 +1,11 @@
 //use es5
+
+let config = {
+    serverHost : 'http://localhost:8099'
+}
+
 // self-defined common objects needs to start with _
-var _common_util = {
+let _common_util = {
     request : function(param){
         var _this = this;
         $.ajax({
@@ -32,7 +37,16 @@ var _common_util = {
         });
     },
     toLogin : function(){
+        // jump to the login page
         window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
+    },
+    // why use a method to invoke path instead of export it from common util directly?
+    // maybe this path will be encoded in the future in order to hide it, the part of encode can be written in this method(modularization)
+    getserverURL : function(path){
+        return this.config.serverHost + path;
+    },
+    errorTips : function(msg){
+        alert(msg || 'error occurs')
     }
 }
 

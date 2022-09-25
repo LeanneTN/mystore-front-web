@@ -64,7 +64,8 @@ module.exports = {
             node_modules : path.resolve(__dirname, '/node_modules'),
             page : path.resolve(__dirname, './src/page'),
             utils : path.resolve(__dirname, './src/utils'),
-            view : path.resolve(__dirname, './src/view')
+            view : path.resolve(__dirname, './src/view'),
+            service : path.resolve(__dirname, './src/service')
         }
     }
     ,
