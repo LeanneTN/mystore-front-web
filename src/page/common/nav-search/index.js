@@ -21,7 +21,10 @@ let nav_search = {
         })
     },
     loadKeyword : function(){
-
+        let keyword = _common_util.getURLParam('keyword')
+        if(keyword){
+            $('#search-input').val(keyword)
+        }
     },
     searchsubmit : function(){
         let keyword = $.trim($('#search-input').val())
