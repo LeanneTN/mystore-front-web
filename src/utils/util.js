@@ -42,11 +42,17 @@ let _common_util = {
     },
     // why use a method to invoke path instead of export it from common util directly?
     // maybe this path will be encoded in the future in order to hide it, the part of encode can be written in this method(modularization)
-    getserverURL : function(path){
-        return this.config.serverHost + path;
+    getServerURL : function(path){
+        return config.serverHost + path;
     },
     errorTips : function(msg){
         alert(msg || 'error occurs')
+    },
+    getURLParam : function(name){
+        let paramString = window.location.search.substring(1);
+        let regExp = new RegExp('(^|&)' + name + '(=[^&]*)(&|$)'); // begin with space or & plus
+        let result = paramString.match(regExp);
+        return result ? decodeURIComponent(result[2]) : null
     }
 }
 

@@ -5,7 +5,7 @@ let _user_service = {
     //logout
     logout : function(resolve, reject){
         _common_util.request({
-            url : _common_util.getServerHost('/user/logout'),
+            url : _common_util.getServerURL('/user/logout'),
             method : 'GET',
             success : resolve,
             error : reject
@@ -14,7 +14,7 @@ let _user_service = {
     // get detail of user
     getUserDetail : function(resolve, reject){
         _common_util.request({
-            url : _common_util.getServerHost('/user/get_user_detail'),
+            url : _common_util.getServerURL('/user/get_user_detail'),
             method : 'POST',
             success : resolve,
             error : reject
