@@ -8,12 +8,14 @@
     <!-- <%= require('./common/nav-top-simple.htm') %> -->
     <%= require('./common/nav-top.htm') %>
     <%= require('./common/nav-search.htm') %>
-    <h1> Index</h1>
-    <a href="#" class="link">abc</a>
-    <a href="" class="btn">sign up</a>
-    <a href="" class="btn btn-mini">btn mini</a>
-    <i class="fa fa-user"></i>
-    <i class="fa fa-shopping-cart"></i>
+
+    <div class="page-wrap w">
+        <%= require('./common/nav-side.htm') %>
+        <div class="content with-side">
+            test
+        </div>
+    </div>
+
     <%= require('./common/common-footer.htm') %>
 </body>
 </html>
