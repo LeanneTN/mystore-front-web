@@ -1,4 +1,5 @@
 //use es5
+let Hogan = require('hogan.js')
 
 let config = {
     serverHost : 'http://localhost:8099'
@@ -53,6 +54,12 @@ let _common_util = {
         let regExp = new RegExp('(^|&)' + name + '(=[^&]*)(&|$)'); // begin with space or & plus
         let result = paramString.match(regExp);
         return result ? decodeURIComponent(result[2]) : null
+    },
+    renderHTML : function(htmlTamplate, data){
+        //use hogan to render html page
+        let template = Hogan.compile(htmlTamplate)
+        let result = template.render(data)
+        return result
     }
 }
 

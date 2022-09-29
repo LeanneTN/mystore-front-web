@@ -22,7 +22,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
-                test: /\.htm$/i,
+                test: /\.(htm|string)$/i,
                 use: {
                     loader : 'html-loader',
                     options: {
