@@ -4,6 +4,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+let getHtmlPluginConfig = function(name){
+    return {
+        
+        template : './src/view/' + name + '.html',  //where the html pages storing
+        filename : 'view/'+ name +'.html',        //where to put the packed pages
+        inject : true,                       //css and js will be injected into pages
+        hash : true,                         //generate a hash code
+        chunks : ['common', name]           //inject util into index
+        
+    }
+}
+
 module.exports = {
     entry: {
         'index' : './src/page/index/index.js',
@@ -38,13 +50,8 @@ module.exports = {
     },
     plugins:[
         new MiniCssExtractPlugin({filename: 'css/[name].css'}),
-        new HtmlWebpackPlugin({
-            template : './src/view/index.html',  //where the html pages storing
-            filename : 'view/index.html',        //where to put the packed pages
-            inject : true,                       //css and js will be injected into pages
-            hash : true,                         //generate a hash code
-            chunks : ['util', 'index']           //inject util into index
-        })
+        new HtmlWebpackPlugin(getHtmlPluginConfig('index')),
+        new HtmlWebpackPlugin(getHtmlPluginConfig('user-login'))
     ],
     optimization : {
         //get public module

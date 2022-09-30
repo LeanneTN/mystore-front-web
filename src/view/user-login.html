@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= require('./common/common-head.htm') %>
+    <title>My Store--user login</title>
+</head>
+<body>
+    <%= require('./common/nav-top-simple.htm') %>
+
+    <div class="page-wrap w">
+        <div class="user-content">
+            <div class="user-title">
+                sign in
+            </div>
+            <div class="user-form">
+                <div class="user-form-item">
+                    <label for="username" class="user-form-label">
+                        <i class="fa fa-user"></i>
+                    </label>
+                    <input type="text" class="user-form-input" id="username" placeholder="please enter username" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="password" class="user-form-label">
+                        <i class="fa fa-lock"></i>
+                    </label>
+                    <input type="password" class="user-form-input" id="password" placeholder="please enter password" autocomplete="off">
+                </div>
+                <a class="btn btn-login" id="submit">sign in</a>
+                <div class="user-form-link">
+                    <a href="#" class="link user-link">forget password</a>
+                    <a href="#" class="link user-link">sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%= require('./common/common-footer.htm') %>
+</body>
+</html>
