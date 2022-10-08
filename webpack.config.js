@@ -19,7 +19,8 @@ let getHtmlPluginConfig = function(name){
 module.exports = {
     entry: {
         'index' : './src/page/index/index.js',
-        'user-login' : './src/page/user-login/index.js'
+        'user-login' : './src/page/user-login/index.js',
+        'user-register' : './src/page/user-register/index.js'
     },
     output: {
         filename: 'js/[name].js',
@@ -51,7 +52,8 @@ module.exports = {
     plugins:[
         new MiniCssExtractPlugin({filename: 'css/[name].css'}),
         new HtmlWebpackPlugin(getHtmlPluginConfig('index')),
-        new HtmlWebpackPlugin(getHtmlPluginConfig('user-login'))
+        new HtmlWebpackPlugin(getHtmlPluginConfig('user-login')),
+        new HtmlWebpackPlugin(getHtmlPluginConfig('user-register'))
     ],
     optimization : {
         //get public module

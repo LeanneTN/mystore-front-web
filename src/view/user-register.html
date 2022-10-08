@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= require('./common/common-head.htm') %>
+    <title>My Store--user register</title>
+</head>
+<body>
+    <%= require('./common/nav-top-simple.htm') %>
+
+    <div class="page-wrap w">
+        <div class="user-content">
+            <div class="user-title">
+                register
+            </div>
+            <div class="user-form">
+                <div class="user-form-error">
+                    <i class="fa fa-exclamation-circle error-icon"></i>
+                    <p class="error-message">error message</p>
+                </div>
+                
+                <div class="user-form-item">
+                    <label for="username" class="user-form-label">
+                        <i class="fa fa-user"></i>
+                    </label>
+                    <input type="text" class="user-form-input" id="username" placeholder="please enter username" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="password" class="user-form-label">
+                        <i class="fa fa-lock"></i>
+                    </label>
+                    <input type="password" class="user-form-input" id="password" placeholder="please enter password" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="repeatPassword" class="user-form-label">
+                        <i class="fa fa-lock"></i>
+                    </label>
+                    <input type="password" class="user-form-input" id="repeatPassword" placeholder="please repeat password" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="phone" class="user-form-label">
+                        <i class="fa fa-phone"></i>
+                    </label>
+                    <input type="text" class="user-form-input" id="phone" placeholder="please enter phone number" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="email" class="user-form-label">
+                        <i class="fa fa-envelope"></i>
+                    </label>
+                    <input type="text" class="user-form-input" id="email" placeholder="please enter email" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="question" class="user-form-label">
+                        <i class="fa fa-question"></i>
+                    </label>
+                    <input type="text" class="user-form-input" id="question" placeholder="please enter forget password question" autocomplete="off">
+                </div>
+                <div class="user-form-item">
+                    <label for="answer" class="user-form-label">
+                        <i class="fa fa-key"></i>
+                    </label>
+                    <input type="text" class="user-form-input" id="answer" placeholder="please enter answer" autocomplete="off">
+                </div>
+                <a class="btn btn-login" id="submit">register now!</a>
+                <div class="user-form-link">
+                    <a href="./user-login.html" class="link user-link">already have account?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%= require('./common/common-footer.htm') %>
+</body>
+</html>
