@@ -14,6 +14,9 @@ let _common_util = {
             url : param.url || '',
             dataType : param.type || 'json',
             data : param.data || '',
+            xhrFields : {
+                withCredentialsTrue : true
+            },
             success : function(res){
                 //request success and return code is 0
                 if (0 === res.code){
@@ -50,10 +53,10 @@ let _common_util = {
         alert(msg || 'error occurs')
     },
     getURLParam : function(name){
-        let paramString = window.location.search.substring(1);
-        let regExp = new RegExp('(^|&)' + name + '(=[^&]*)(&|$)'); // begin with space or & plus
-        let result = paramString.match(regExp);
-        return result ? decodeURIComponent(result[2]) : null
+        var paramString = window.location.search.substring(1);
+        var regExp = new RegExp('(^|&)' + name +'=([^&]*)(&|$)');
+        var result = paramString.match(regExp);
+        return result ? decodeURIComponent(result[2]) : null;
     },
     renderHTML : function(htmlTamplate, data){
         //use hogan to render html page

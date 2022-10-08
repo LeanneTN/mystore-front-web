@@ -38,13 +38,11 @@ let user_login = {
         if(validateResult.status){
             _user_service.login(formData, function(res){
                 window.location.href = _common_util.getURLParam('redirect') || './index.html';
-            },
-            function(errorMsg){
-                errorItem.show(errorMsg)
+            }, function(errorMsg){
+                errorItem.show(errorMsg);
             })
         }else{
-            //console.log('validate failed')
-            errorItem.show(validateResult.msg)
+            errorItem.show(validateResult.msg);
         }
     },
     formDataValidate : function(formData){
