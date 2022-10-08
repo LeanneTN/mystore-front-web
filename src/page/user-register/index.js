@@ -19,27 +19,67 @@ let user_login = {
     },
     bindEvents : function(){
         let _this = this
+
+        $('#username').blur(function(){
+            let username = $.trim($('#username').val())
+            if(username){
+                _user_service.checkUsername(username, function(res){
+                    errorItem.hide();
+                },
+                function(errorMsg){
+                    errorItem.show(errorMsg);
+                })
+            }
+        });
+
+        $('#email').blur(function(){
+            let email = $.trim($('#email').val())
+            if(email){
+                _user_service.checkEmail(email, function(res){
+                    errorItem.hide();
+                },
+                function(errorMsg){
+                    errorItem.show(errorMsg);
+                })
+            }
+        });
+
+        $('#phone').blur(function(){
+            let phone = $.trim($('#phone').val())
+            if(phone){
+                _user_service.checkPhone(phone, function(res){
+                    errorItem.hide();
+                },
+                function(errorMsg){
+                    errorItem.show(errorMsg);
+                })
+            }
+        });
+
         $('#submit').click(function(){
             _this.submit()
-        })
-        $(".user-form-item").keyup(function(e){
-            if(e.keyCode == 13){
-                _this.submit();
-            }
         })
     },
     submit : function(){
         let formData = {
             username : $.trim($('#username').val()),
-            password : $.trim($('#password').val())
+            password : $.trim($('#password').val()),
+            repeatPassword : $.trim($('#repeatPassword').val()),
+            phone : $.trim($('#phone').val()),
+            email : $.trim($('#email').val()),
+            question : $.trim($('#question').val()),
+            answer : $.trim($('#answer').val())
         }
 
         let validateResult = this.formDataValidate(formData);
         if(validateResult.status){
-            _user_service.login(formData, function(res){
-                window.location.href = _common_util.getURLParam('redirect') || './index.html';
-            }, function(errorMsg){
-                errorItem.show(errorMsg);
+            delete formData.repeatPassword;
+            JSON.stringify(formData); //change js object to json string 
+            _user_service.register(formData, function(res){
+
+            },
+            function(errorMsg){
+                
             })
         }else{
             errorItem.show(validateResult.msg);
@@ -54,8 +94,33 @@ let user_login = {
         if(!_common_util.validate(formData.username, 'require')){
             result.msg = "username can't be null"
             return result
-        }else if(!_common_util.validate(formData.password, 'require')){
+        }
+        if(!_common_util.validate(formData.password, 'require')){
             result.msg = "password can't be null"
+            return result
+        }
+        if(formData.password.length < 8){
+            result.msg = "password's length needs to longer than 8"
+            return result
+        }
+        if(formData.password != formData.repeatPassword){
+            result.msg = "passwords can't match"
+            return result
+        }
+        if(!_common_util.validate(formData.phone, 'phone')){
+            result.msg = "format of phone number is not correct"
+            return result
+        }
+        if(!_common_util.validate(formData.email, 'email')){
+            result.msg = "format of email is not correct"
+            return result
+        }
+        if(!_common_util.validate(formData.question, 'require')){
+            result.msg = "password recommand question can't be null"
+            return result
+        }
+        if(!_common_util.validate(formData.answer, 'require')){
+            result.msg = "result can't be null"
             return result
         }
         result.status = true

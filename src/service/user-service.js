@@ -29,6 +29,43 @@ let _user_service = {
             error : reject
         });
     },
+    checkUsername : function(username, resolve, reject){
+        _common_util.request({
+            url : _common_util.getServerURL('/user/check_field'),
+            method : 'POST',
+            data   : {fieldName : 'username', fieldValue : username}, 
+            success : resolve,
+            error : reject
+        })
+    },
+    checkEmail : function(email, resolve, reject){
+        _common_util.request({
+            url : _common_util.getServerURL('/user/check_field'),
+            method : 'POST',
+            data   : {fieldName : 'email', fieldValue : email}, 
+            success : resolve,
+            error : reject
+        })
+    },
+    checkPhone : function(phone, resolve, reject){
+        _common_util.request({
+            url : _common_util.getServerURL('/user/check_field'),
+            method : 'POST',
+            data   : {fieldName : 'phone', fieldValue : phone}, 
+            success : resolve,
+            error : reject
+        })
+    },
+    register : function(userInfo, resolve, reject){
+        _common_util.request({
+            url : _common_util.getServerURL('/user/register'),
+            method : 'POST',
+            contentType : 'application/json',
+            data   : userInfo, 
+            success : resolve,
+            error : reject
+        })
+    }
 }
 
 module.exports = _user_service

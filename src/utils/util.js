@@ -12,6 +12,7 @@ let _common_util = {
         $.ajax({
             type : param.method || 'GET',
             url : param.url || '',
+            contentType : param.contentType || 'application/x-www-form-urlencoded',
             dataType : param.type || 'json',
             data : param.data || '',
             xhrFields : {
@@ -65,13 +66,18 @@ let _common_util = {
         return result
     },
     // string validate for checking if string is null
-    // todo: phone number, email...
     validate  : function(value, type){
         let value1  = $.trim(value);
         if('require' === type){
             return !!value1;
         }
-        // add phone number format, email format, id number format validate
+        if('phone' === type){
+            return /^1\d{10}$/.test(value)
+        }
+        if('email' === type){
+            return /^\w+([-+.]\w+)*@\w+([-.]\ w+)*\.\w+([-.]\w+)*$/.test(value)
+        }
+
     }
 }
 
