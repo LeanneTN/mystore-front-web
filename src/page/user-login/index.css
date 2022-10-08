@@ -42,6 +42,24 @@
     border-right: 1px solid #bdbdbd;
 }
 
+.user-content .user-form .user-form-error{
+    position: relative;
+    padding: 4px 0 4px 40px;
+    margin-bottom: 10px;
+    border: 0.5px solid red;
+    color: red;
+    background: #fde9e9;
+    display: none;
+}
+
+.user-content .user-form .user-form-error .error-icon{
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    font-size: 14px;
+    margin-top: -7px;
+}
+
 .user-content .user-form .user-form-input{
     padding: 10px 0 10px 50px;
     width: 308px;

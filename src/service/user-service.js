@@ -19,6 +19,15 @@ let _user_service = {
             success : resolve,
             error : reject
         })
+    },
+    login : function(userInfo, resolve, reject){
+        _common_util.request({
+            url : _common_util.getServerURL('/user/login'),
+            method : 'POST',
+            data : userInfo,
+            success : resolve,
+            error : reject
+        })
     }
 }
 

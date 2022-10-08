@@ -60,6 +60,15 @@ let _common_util = {
         let template = Hogan.compile(htmlTamplate)
         let result = template.render(data)
         return result
+    },
+    // string validate for checking if string is null
+    // todo: phone number, email...
+    validate  : function(value, type){
+        let value1  = $.trim(value);
+        if('require' === type){
+            return !!value1;
+        }
+        // add phone number format, email format, id number format validate
     }
 }
 
