@@ -61,7 +61,7 @@ let _user_service = {
             url : _common_util.getServerURL('/user/register'),
             method : 'POST',
             contentType : 'application/json',
-            data   : userInfo, 
+            data   : JSON.stringify(userInfo), 
             success : resolve,
             error : reject
         })

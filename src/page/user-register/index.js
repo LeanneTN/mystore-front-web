@@ -76,10 +76,10 @@ let user_login = {
             delete formData.repeatPassword;
             JSON.stringify(formData); //change js object to json string 
             _user_service.register(formData, function(res){
-
+                window.location.href = './result.html?type=register'
             },
             function(errorMsg){
-                
+                errorItem.show(errorItem)
             })
         }else{
             errorItem.show(validateResult.msg);
