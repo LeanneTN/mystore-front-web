@@ -4,7 +4,8 @@ let _common_util = require('utils/util.js')
 
 let result = {
     init : function(){
-        let type = _common_util.getURLParam('type');
+        let type = _common_util.getURLParam('type') || 'default';
+        $('.'+type+'-success').show()
     }
 }
 
