@@ -46,6 +46,9 @@ let nav_top = {
         _cart_service.getCartCount({
             function(res){
                 $('.cart-count').text(res || 0)
+            },
+            function(errorMsg){
+                $('.cart-count').text(0)
             }
         })
     }

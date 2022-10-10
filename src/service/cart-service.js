@@ -5,8 +5,8 @@ let _cart_service = {
     // get quantities of cart
     getCartCount : function(resolve, reject){
         _common_util.request({
-            url : _common_util.getServerURL('/cart/get_cart'),  //url of get cart
-            method : 'POST',
+            url : _common_util.getServerURL('/cart/get_cart_count'),  //url of get cart
+            method : 'GET',
             success : resolve,
             error : reject
         })
